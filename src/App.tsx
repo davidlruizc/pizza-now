@@ -4,7 +4,6 @@ import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import './App.css';
 
 const App: React.FC = () => {
   return (
