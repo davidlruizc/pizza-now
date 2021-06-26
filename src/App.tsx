@@ -1,26 +1,24 @@
+import { NavigationUrls } from 'constants/navigationURLS';
+import CreatePizza from 'pages/CreatePizza';
+import Home from 'pages/Home';
+import NotFound from 'pages/NotFound';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path={NavigationUrls.root}>
+          <Home />
+        </Route>
+        <Route path={NavigationUrls.createPizza}>
+          <CreatePizza />
+        </Route>
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
