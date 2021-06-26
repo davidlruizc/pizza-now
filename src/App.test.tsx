@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react';
 import App from './App';
 import { renderWithRouter } from 'utils/tests';
 
+// TODO: Change test
 test('full app rendering/navigation', () => {
   renderWithRouter(<App />);
 
