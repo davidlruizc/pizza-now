@@ -1,9 +1,16 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import App from './App';
+import { renderWithRouter } from 'utils/tests';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('full app rendering/navigation', () => {
+  renderWithRouter(<App />);
+
+  expect(screen.getByText(/embeces/i)).toBeInTheDocument();
+});
+
+test('landing on a bad page', () => {
+  renderWithRouter(<App />, { route: '/something-that-does-not-match' });
+
+  expect(screen.getByText(/not found/i)).toBeInTheDocument();
 });
