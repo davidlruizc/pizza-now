@@ -15,6 +15,21 @@ interface IngredientProps {
 }
 
 const Ingredient: React.FC<IngredientProps> = ({ ingredient, price }) => {
+  const [value, setValue] = React.useState<number>(0);
+
+  const addIngredient = () => {
+    setValue((prevState) => prevState + 1);
+  };
+
+  const removeIngredient = () => {
+    setValue((prevState) => {
+      if (prevState !== 0) {
+        return prevState - 1;
+      }
+      return prevState;
+    });
+  };
+
   return (
     <IngredientsContainer>
       <ContentWrapper>
@@ -23,13 +38,13 @@ const Ingredient: React.FC<IngredientProps> = ({ ingredient, price }) => {
       </ContentWrapper>
       <IngredientsCounter>
         <InputGroupAddon addonType="prepend">
-          <Button>
+          <Button onClick={removeIngredient}>
             <i className="fa fa-minus" />
           </Button>
         </InputGroupAddon>
-        <IngredientsInput readOnly={true} value={8} min="0" max="8" />
+        <IngredientsInput readOnly={true} value={value} min="0" max="8" />
         <InputGroupAddon addonType="append">
-          <Button>
+          <Button onClick={addIngredient}>
             <i className="fa fa-plus" />
           </Button>
         </InputGroupAddon>
