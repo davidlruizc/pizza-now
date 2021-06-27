@@ -2,6 +2,7 @@ import { Ingredients } from 'constants/ingredients';
 
 export const UPDATE_INGREDIENTS = 'UPDATE_INGREDIENTS';
 export const SET_FINAL_PRICE = 'SET_FINAL_PRICE';
+export const SET_DEFAULT_INGREDIENTS = 'SET_DEFAULT_INGREDIENTS';
 
 export interface IUpdateIngredients {
   type: typeof UPDATE_INGREDIENTS;
@@ -11,6 +12,10 @@ export interface IUpdateIngredients {
 export interface ISetFinalPrice {
   type: typeof SET_FINAL_PRICE;
   payload: number;
+}
+
+export interface ISetDefaultIngredients {
+  type: typeof SET_DEFAULT_INGREDIENTS;
 }
 
 function updateIngredientsList(
@@ -34,7 +39,7 @@ export const initialState: IIngredientsSelectionReducer = {
   finalPrice: 0,
 };
 
-export type IIngredientsActionType = IUpdateIngredients | ISetFinalPrice;
+export type IIngredientsActionType = IUpdateIngredients | ISetFinalPrice | ISetDefaultIngredients;
 
 const IngredientsReducer = (
   state: IIngredientsSelectionReducer = initialState,
@@ -48,6 +53,8 @@ const IngredientsReducer = (
       };
     case SET_FINAL_PRICE:
       return { ...state, finalPrice: action.payload };
+    case SET_DEFAULT_INGREDIENTS:
+      return { ...initialState };
     default:
       return state;
   }
