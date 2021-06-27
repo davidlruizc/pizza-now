@@ -6,7 +6,7 @@ import Step2 from './Step2';
 const CreatePizzaForm: React.FC = () => {
   return (
     <Container>
-      <Step1 />
+      <Step2 />
     </Container>
   );
 };
