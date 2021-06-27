@@ -37,7 +37,7 @@ const CreatePizzaForm: React.FC = () => {
   return (
     <Container>
       <StepWizard instance={setWizardInstance}>
-        <Step1 onNextStep={setNextStep} />
+        {/* <Step1 onNextStep={setNextStep} /> */}
         <Step2 onPrevStep={prevStep} />
       </StepWizard>
     </Container>

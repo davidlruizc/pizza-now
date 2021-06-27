@@ -11,23 +11,17 @@ const Step2: React.FC<Step2Props> = ({ onPrevStep }) => {
     <Form>
       <FormGroup>
         <Label for="exampleEmail">Nombre</Label>
-        <Input type="text" name="email" id="exampleEmail" placeholder="Ingresa tu nombre" />
+        <Input type="text" name="email" placeholder="Ingresa tu nombre" />
       </FormGroup>
       <FormGroup>
         <Label for="exampleNumber">Teléfono</Label>
-        <Input
-          type="number"
-          name="number"
-          id="exampleNumber"
-          placeholder="Ingresa tu número de teléfono"
-        />
+        <Input type="number" name="number" placeholder="Ingresa tu número de teléfono" />
       </FormGroup>
       <FormGroup>
         <Label for="exampleEmail">Nombra tu pizza</Label>
         <Input
           type="text"
           name="email"
-          id="exampleEmail"
           placeholder="Dale un nombre a tu pizza: Ej, Pizza carnivora"
         />
       </FormGroup>

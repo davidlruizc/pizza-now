@@ -39,7 +39,7 @@ const Ingredient: React.FC<IngredientProps> = ({
             <i className="fa fa-minus" />
           </Button>
         </InputGroupAddon>
-        <IngredientsInput readOnly={false} value={quantity} min="0" max="8" />
+        <IngredientsInput readOnly={true} value={quantity} min="0" max="8" />
         <InputGroupAddon addonType="append">
           <Button onClick={addIngredient} disabled={disabled}>
             <i className="fa fa-plus" />
