@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'reactstrap';
 import { RootState } from 'states';
-import { FormatCurrency } from 'utils';
+import { FormatCurrency, RandomPizzaImage } from 'utils';
 import {
   NextWrapper,
   PriceLabel,
@@ -49,12 +49,7 @@ const Step1: React.FC<Step1Props> = ({ onNextStep }) => {
 
   return (
     <StepContainer>
-      <StepImage
-        top
-        width="100%"
-        src="https://images.unsplash.com/photo-1571066811602-716837d681de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=831&q=80"
-        alt="Card image cap"
-      />
+      <StepImage top width="100%" src={RandomPizzaImage()} alt="Card image cap" />
       {ingredients.map((ingredient) => (
         <Ingredient
           key={ingredient.id}
