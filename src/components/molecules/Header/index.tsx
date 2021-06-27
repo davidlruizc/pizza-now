@@ -1,18 +1,15 @@
 import MainTitle from 'components/atoms/MainTitle';
 import NewPizzaButton from 'components/atoms/NewPizzaButton';
-import { NavigationUrls } from 'constants/navigationURLS';
 import * as React from 'react';
-import { useHistory } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
 import { HeaderContainer, RightButton } from './styles';
 
-const Header: React.FC = () => {
-  let history = useHistory();
+interface HeaderProps {
+  onNavigate: () => void;
+  close?: boolean;
+}
 
-  const onCreatePizza = () => {
-    history.push(NavigationUrls.createPizza);
-  };
-
+const Header: React.FC<HeaderProps> = ({ onNavigate, close }) => {
   return (
     <HeaderContainer>
       <Row>
@@ -21,7 +18,7 @@ const Header: React.FC = () => {
         </Col>
         <Col xs="6">
           <RightButton>
-            <NewPizzaButton onClick={onCreatePizza} />
+            <NewPizzaButton onClick={onNavigate} close={close} />
           </RightButton>
         </Col>
       </Row>
