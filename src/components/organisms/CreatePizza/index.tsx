@@ -1,5 +1,6 @@
 import BigCard from 'components/molecules/BigCard';
 import Content from 'components/molecules/Content';
+import CreatePizzaForm from 'components/molecules/CreatePizzaForm';
 import Header from 'components/molecules/Header';
 import { NavigationUrls } from 'constants/navigationURLS';
 import * as React from 'react';
@@ -21,7 +22,7 @@ const CreatePizza: React.FC = () => {
           title="Crea tu pizza"
           subtitle="Elige los sabores que más te gusten y arma una pizza a tu medida"
         >
-          asdfs
+          <CreatePizzaForm />
         </BigCard>
       </Container>
     </Content>
