@@ -9630,6 +9630,11 @@ react-shallow-renderer@^16.13.1:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0"
 
+react-step-wizard@^5.3.6:
+  version "5.3.6"
+  resolved "https://registry.yarnpkg.com/react-step-wizard/-/react-step-wizard-5.3.6.tgz#d109d741d258166fc2c08dabefd689764ec7a194"
+  integrity sha512-cJiJ+Pgku10scyL39HYKPgwoZQLgtOs4tVo9LC6IUoUqXdElrMrwRjSwOJrRgL6OmTAUaLIzAhq7mNSqaYtvMw==
+
 react-test-renderer@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-17.0.2.tgz#4cd4ae5ef1ad5670fc0ef776e8cc7e1231d9866c"
