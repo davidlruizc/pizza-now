@@ -1,7 +1,14 @@
 import Ingredient from 'components/atoms/Ingredient';
 import * as React from 'react';
 import { Button } from 'reactstrap';
-import { NextWrapper, StepContainer, StepImage } from './styles';
+import {
+  NextWrapper,
+  PriceLabel,
+  PriceValue,
+  PriceWrapper,
+  StepContainer,
+  StepImage,
+} from './styles';
 
 const Step1: React.FC = () => {
   return (
@@ -27,6 +34,10 @@ const Step1: React.FC = () => {
       <Ingredient ingredient="Piña" price={3000} />
       <Ingredient ingredient="Maíz" price={3000} />
       <Ingredient ingredient="Huevo" price={3000} />
+      <PriceWrapper>
+        <PriceLabel>Precio Total:</PriceLabel>
+        <PriceValue>$100000</PriceValue>
+      </PriceWrapper>
       <NextWrapper>
         <Button color="primary" size="lg" block>
           Siguiente

@@ -1,4 +1,4 @@
-import { CardImg } from 'reactstrap';
+import { CardImg, Label } from 'reactstrap';
 import styled from 'styled-components';
 import { device } from 'utils/responsiveTemplate';
 
@@ -31,4 +31,22 @@ export const NextWrapper = styled.div`
   margin-top: 15px;
   margin-bottom: 15px;
   width: 100%;
+`;
+
+export const PriceWrapper = styled.div`
+  width: 100%;
+`;
+
+export const PriceLabel = styled(Label)`
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+`;
+
+export const PriceValue = styled(Label)`
+  width: 100%;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: right;
 `;
