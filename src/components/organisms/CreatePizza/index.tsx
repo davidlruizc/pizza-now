@@ -1,22 +1,21 @@
 import Content from 'components/molecules/Content';
 import Header from 'components/molecules/Header';
-import Orders from 'components/molecules/Orders';
 import { NavigationUrls } from 'constants/navigationURLS';
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const HomeList: React.FC = () => {
+const CreatePizza: React.FC = () => {
   const history = useHistory();
 
-  const onCreatePizza = () => {
-    history.push(NavigationUrls.createPizza);
+  const onListPizzas = () => {
+    history.push(NavigationUrls.root);
   };
+
   return (
     <Content>
-      <Header onNavigate={onCreatePizza} />
-      <Orders />
+      <Header onNavigate={onListPizzas} close={true} />
     </Content>
   );
 };
 
-export default HomeList;
+export default CreatePizza;

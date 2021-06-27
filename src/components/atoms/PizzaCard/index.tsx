@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle } from 'reactstrap';
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 import { CardContainer, PizzaImage } from './styles';
 
 const PizzaCard = () => {

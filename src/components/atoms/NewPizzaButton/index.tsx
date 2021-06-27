@@ -3,12 +3,13 @@ import { ButtonStyled } from './styles';
 
 interface NewPizzaButtonProps {
   onClick: () => void;
+  close?: boolean;
 }
 
-const NewPizzaButton: React.FC<NewPizzaButtonProps> = ({ onClick }) => {
+const NewPizzaButton: React.FC<NewPizzaButtonProps> = ({ onClick, close }) => {
   return (
     <ButtonStyled size="lg" onClick={onClick}>
-      <i className="fa fa-plus" />
+      <i className={close ? 'fa fa-times' : 'fa fa-plus'} />
     </ButtonStyled>
   );
 };
