@@ -2,7 +2,11 @@ import * as React from 'react';
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 import { CardContainer, PizzaImage } from './styles';
 
-const PizzaCard = () => {
+interface PizzaCardProps {
+  onClick: () => void;
+}
+
+const PizzaCard: React.FC<PizzaCardProps> = ({ onClick }) => {
   return (
     <CardContainer>
       <Card>
@@ -18,7 +22,9 @@ const PizzaCard = () => {
             hace 15 min
           </CardSubtitle>
           <CardText>$500</CardText>
-          <Button color="primary">Ver más</Button>
+          <Button onClick={onClick} color="primary">
+            Ver más
+          </Button>
         </CardBody>
       </Card>
     </CardContainer>
