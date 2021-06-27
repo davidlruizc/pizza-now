@@ -38,6 +38,7 @@ const Step1: React.FC<Step1Props> = ({ onNextStep }) => {
       <Ingredient ingredient="Piña" price={3000} />
       <Ingredient ingredient="Maíz" price={3000} />
       <Ingredient ingredient="Huevo" price={3000} />
+      <Ingredient ingredient="Masa" price={10000} disabled={true} />
       <PriceWrapper>
         <PriceLabel>Precio Total:</PriceLabel>
         <PriceValue>$100000</PriceValue>
