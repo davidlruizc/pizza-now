@@ -1,4 +1,4 @@
-import { Label } from 'reactstrap';
+import { Col, Label } from 'reactstrap';
 import styled from 'styled-components';
 
 export const SubmitWrapper = styled.div`
@@ -23,4 +23,8 @@ export const PriceValue = styled(Label)`
   font-weight: bold;
   font-size: 24px;
   text-align: left;
+`;
+
+export const ButtonCol = styled(Col)`
+  margin-top: 10px;
 `;

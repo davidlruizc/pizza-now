@@ -10,7 +10,11 @@ import {
   StepImage,
 } from './styles';
 
-const Step1: React.FC = () => {
+interface Step1Props {
+  onNextStep: () => void;
+}
+
+const Step1: React.FC<Step1Props> = ({ onNextStep }) => {
   return (
     <StepContainer>
       <StepImage
@@ -39,7 +43,7 @@ const Step1: React.FC = () => {
         <PriceValue>$100000</PriceValue>
       </PriceWrapper>
       <NextWrapper>
-        <Button color="primary" size="lg" block>
+        <Button color="primary" size="lg" block onClick={onNextStep}>
           Siguiente
         </Button>
       </NextWrapper>

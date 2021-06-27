@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import { PriceLabel, PriceValue, PriceWrapper, SubmitWrapper } from './styles';
+import { Button, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { ButtonCol, PriceLabel, PriceValue, PriceWrapper, SubmitWrapper } from './styles';
 
-const Step2: React.FC = () => {
+interface Step2Props {
+  onPrevStep: () => void;
+}
+
+const Step2: React.FC<Step2Props> = ({ onPrevStep }) => {
   return (
     <Form>
       <FormGroup>
@@ -32,9 +36,18 @@ const Step2: React.FC = () => {
         <PriceValue>$100000</PriceValue>
       </PriceWrapper>
       <SubmitWrapper>
-        <Button color="primary" size="lg" block>
-          Ordenar
-        </Button>
+        <Row>
+          <ButtonCol sm="6">
+            <Button color="primary" size="lg" block onClick={onPrevStep}>
+              Anterior
+            </Button>
+          </ButtonCol>
+          <ButtonCol sm="6">
+            <Button color="primary" size="lg" block>
+              Ordenar
+            </Button>
+          </ButtonCol>
+        </Row>
       </SubmitWrapper>
     </Form>
   );
