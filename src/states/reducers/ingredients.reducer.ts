@@ -1,4 +1,5 @@
 import { Ingredients } from 'constants/ingredients';
+import { RandomPizzaImage } from 'utils';
 
 export const UPDATE_INGREDIENTS = 'UPDATE_INGREDIENTS';
 export const SET_FINAL_PRICE = 'SET_FINAL_PRICE';
@@ -37,6 +38,7 @@ function updateIngredientsList(
 export const initialState: IIngredientsSelectionReducer = {
   ingredients: Ingredients,
   finalPrice: 0,
+  image: RandomPizzaImage(),
 };
 
 export type IIngredientsActionType = IUpdateIngredients | ISetFinalPrice | ISetDefaultIngredients;
