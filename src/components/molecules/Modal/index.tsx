@@ -1,6 +1,7 @@
 import { PizzaImage } from 'components/atoms/PizzaCard/styles';
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { MainModalTitle, ModalContent, ModalContentBold, ModalSubTitle } from './styles';
 
 interface ModalPizzaProps {
   modal: boolean;
@@ -18,18 +19,31 @@ const ModalPizza: React.FC<ModalPizzaProps> = ({ modal, toggle }) => {
         alt="Card image cap"
       />
       <ModalBody>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <MainModalTitle>Pizza Carnivora</MainModalTitle>
+        <ModalSubTitle>Ingredientes:</ModalSubTitle>
+        <ul>
+          <ModalContent>2 porciones de Salchicha Americana</ModalContent>
+          <ModalContent>2 porciones de Salchicha Americana</ModalContent>
+        </ul>
+        <ModalSubTitle>Información de la ordén:</ModalSubTitle>
+        <ul>
+          <ModalContent>
+            <ModalContentBold>Nombre: </ModalContentBold> David Ruiz
+          </ModalContent>
+          <ModalContent>
+            <ModalContentBold>Teléfono: </ModalContentBold> 12312312312
+          </ModalContent>
+          <ModalContent>
+            <ModalContentBold>Fecha: </ModalContentBold> hace 20 min
+          </ModalContent>
+          <ModalContent>
+            <ModalContentBold>Precio: </ModalContentBold> $10000
+          </ModalContent>
+        </ul>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={toggle}>
-          Do Something
-        </Button>
-        <Button color="secondary" onClick={toggle}>
-          Cancel
+          Cerrar
         </Button>
       </ModalFooter>
     </Modal>
