@@ -28,8 +28,6 @@ exports[`<BigCard /> render big card 1`] = `
   </div>
   <div
     className="sc-bdnxRM hXVjEJ card-body"
-  >
-    Pizza Now
-  </div>
+  />
 </div>
 `;

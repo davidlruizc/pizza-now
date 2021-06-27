@@ -3,6 +3,7 @@ import BigCard from './index';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 
+// TODO: change test for children prop
 describe('<BigCard />', () => {
   test('render big card', () => {
     const data = {
