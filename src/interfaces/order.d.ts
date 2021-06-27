@@ -27,4 +27,5 @@ declare interface IIngredients {
   pineapple: number;
   corn: number;
   egg: number;
+  mass: number;
 }
