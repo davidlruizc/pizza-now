@@ -30,7 +30,7 @@ const Step1: React.FC = () => {
       <Ingredient ingredient="Aceitunas" price={3000} />
       <Ingredient ingredient="Tomates" price={3000} />
       <Ingredient ingredient="Chile" price={3000} />
-      <Ingredient ingredient="Aceitunas" price={3000} />
+      <Ingredient ingredient="Mostaza" price={3000} />
       <Ingredient ingredient="Piña" price={3000} />
       <Ingredient ingredient="Maíz" price={3000} />
       <Ingredient ingredient="Huevo" price={3000} />
