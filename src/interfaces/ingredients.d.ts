@@ -8,4 +8,5 @@ declare interface IIngredientsSelection {
 
 declare interface IIngredientsSelectionReducer {
   ingredients: IIngredientsSelection[];
+  finalPrice: number;
 }
