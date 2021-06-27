@@ -11,10 +11,16 @@ function updateIngredientsList(
   fullList: IIngredientsSelection[],
   toUpdate: IIngredientsSelection
 ): IIngredientsSelection[] {
-  const getIndex = fullList.findIndex((x) => x.id === toUpdate.id);
-  fullList[getIndex] = toUpdate;
+  return fullList.map((item) => {
+    if (item.id !== toUpdate.id) {
+      return item;
+    }
 
-  return fullList;
+    return {
+      ...item,
+      ...toUpdate,
+    };
+  });
 }
 
 export const initialState: IIngredientsSelectionReducer = { ingredients: Ingredients };
