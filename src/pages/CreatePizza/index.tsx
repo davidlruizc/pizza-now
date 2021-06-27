@@ -1,7 +1,8 @@
 import * as React from 'react';
+import CreatePizzaInfo from 'components/organisms/CreatePizza';
 
 const CreatePizza: React.FC = () => {
-  return <div>create embeces</div>;
+  return <CreatePizzaInfo />;
 };
 
 export default CreatePizza;

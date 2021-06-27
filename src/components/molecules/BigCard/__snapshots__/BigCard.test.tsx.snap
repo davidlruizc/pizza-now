@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BigCard /> render big card 1`] = `
+<div
+  className="sc-gtsrHT jLYIyH shadow bg-secondary card"
+>
+  <div
+    className="bg-white border-0 card-header"
+  >
+    <div
+      className="sc-hKFxyN row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <h2
+          className="mb-0"
+        >
+          Crea tu pizza
+        </h2>
+        <p
+          className="sc-dlnjwi jozUwS"
+        >
+          Elige los sabores que más te gusten y arma una pizza a tu medida
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-bdnxRM hXVjEJ card-body"
+  />
+</div>
+`;

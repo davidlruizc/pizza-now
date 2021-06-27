@@ -3,11 +3,10 @@ import { screen } from '@testing-library/react';
 import App from './App';
 import { renderWithRouter } from 'utils/tests';
 
-// TODO: Change test
 test('full app rendering/navigation', () => {
   renderWithRouter(<App />);
 
-  expect(screen.getByText(/embeces/i)).toBeInTheDocument();
+  expect(screen.getByText(/pizza now/i)).toBeInTheDocument();
 });
 
 test('landing on a bad page', () => {
