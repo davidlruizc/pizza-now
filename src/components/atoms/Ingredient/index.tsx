@@ -14,24 +14,19 @@ interface IngredientProps {
   ingredient: string;
   price: number;
   disabled?: boolean;
+  quantity: number;
+  addIngredient: () => void;
+  removeIngredient: () => void;
 }
 
-const Ingredient: React.FC<IngredientProps> = ({ ingredient, price, disabled }) => {
-  const [value, setValue] = React.useState<number>(0);
-
-  const addIngredient = () => {
-    setValue((prevState) => prevState + 1);
-  };
-
-  const removeIngredient = () => {
-    setValue((prevState) => {
-      if (prevState !== 0) {
-        return prevState - 1;
-      }
-      return prevState;
-    });
-  };
-
+const Ingredient: React.FC<IngredientProps> = ({
+  ingredient,
+  price,
+  disabled,
+  quantity,
+  addIngredient,
+  removeIngredient,
+}) => {
   return (
     <IngredientsContainer>
       <ContentWrapper>
@@ -44,7 +39,7 @@ const Ingredient: React.FC<IngredientProps> = ({ ingredient, price, disabled }) 
             <i className="fa fa-minus" />
           </Button>
         </InputGroupAddon>
-        <IngredientsInput readOnly={false} value={value} min="0" max="8" />
+        <IngredientsInput readOnly={false} value={quantity} min="0" max="8" />
         <InputGroupAddon addonType="append">
           <Button onClick={addIngredient} disabled={disabled}>
             <i className="fa fa-plus" />
