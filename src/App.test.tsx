@@ -1,16 +1,21 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
 import App from './App';
-import { renderWithRouter } from 'utils/tests';
+import Home from 'pages/Home';
+import NotFound from 'pages/NotFound';
+import { MockProvider } from 'utils/tests/MockProvider';
 
-test('full app rendering/navigation', () => {
-  renderWithRouter(<App />);
+describe('<App />', () => {
+  test('invalid path should redirect to 404', () => {
+    const wrapper = MockProvider('/random', <App />);
 
-  expect(screen.getByText(/pizza now/i)).toBeInTheDocument();
-});
+    expect(wrapper.find(Home)).toHaveLength(0);
+    expect(wrapper.find(NotFound)).toHaveLength(1);
+  });
 
-test('landing on a bad page', () => {
-  renderWithRouter(<App />, { route: '/something-that-does-not-match' });
+  test('render root app navigation', () => {
+    const wrapper = MockProvider('/', <App />);
 
-  expect(screen.getByText(/not found/i)).toBeInTheDocument();
+    expect(wrapper.find(Home)).toHaveLength(1);
+    expect(wrapper.find(NotFound)).toHaveLength(0);
+  });
 });
