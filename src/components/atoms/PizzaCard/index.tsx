@@ -6,7 +6,15 @@ import { CardContainer, PizzaImage } from './styles';
 
 interface PizzaCardProps extends IOrder {}
 
-const PizzaCard: React.FC<PizzaCardProps> = ({ image, pizzaName, price, date }) => {
+const PizzaCard: React.FC<PizzaCardProps> = ({
+  image,
+  pizzaName,
+  price,
+  date,
+  name,
+  ingredients,
+  phone,
+}) => {
   const [modal, setModal] = React.useState<boolean>(false);
 
   const toggle = () => setModal(!modal);
@@ -25,7 +33,17 @@ const PizzaCard: React.FC<PizzaCardProps> = ({ image, pizzaName, price, date }) 
           </Button>
         </CardBody>
       </Card>
-      <ModalPizza modal={modal} toggle={toggle} />
+      <ModalPizza
+        modal={modal}
+        toggle={toggle}
+        image={image}
+        pizzaName={pizzaName}
+        price={price}
+        name={name}
+        date={date}
+        ingredients={ingredients}
+        phone={phone}
+      />
     </CardContainer>
   );
 };
