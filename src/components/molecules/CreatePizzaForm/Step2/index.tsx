@@ -1,6 +1,10 @@
+import { SetDefaultIngredients } from 'actions/redux/ingredientsAction';
+import { setPizzaOrder } from 'actions/redux/pizzaOrderAction';
+import { NavigationUrls } from 'constants/navigationURLS';
 import * as React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Button, Form, FormFeedback, FormGroup, Input, Label, Row } from 'reactstrap';
 import { RootState } from 'states';
 import { FormatCurrency, hookFormValidation } from 'utils';
@@ -17,7 +21,11 @@ interface Step2Form {
 }
 
 const Step2: React.FC<Step2Props> = ({ onPrevStep }) => {
+  const ingredients = useSelector((state: RootState) => state.IngredientsReducer.ingredients);
   const finalPriceSelector = useSelector((state: RootState) => state.IngredientsReducer.finalPrice);
+  const imageSelector = useSelector((state: RootState) => state.IngredientsReducer.image);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const defaultValues: Step2Form = {
     name: '',
@@ -36,7 +44,37 @@ const Step2: React.FC<Step2Props> = ({ onPrevStep }) => {
   } = useForm<Step2Form>({ ...hookFormValidation, defaultValues: getDefaultFormValues() });
 
   const submitPizzaCreation = (info: Step2Form) => {
-    console.log(info);
+    const createPizza: IOrder = {
+      date: new Date(),
+      name: info.name,
+      phone: parseInt(info.phone),
+      pizzaName: info.pizzaName,
+      price: finalPriceSelector,
+      ingredients: {
+        bacon: ingredients[4].quantity,
+        cheese: ingredients[2].quantity,
+        chicken: ingredients[1].quantity,
+        chili: ingredients[10].quantity,
+        chorizo: ingredients[5].quantity,
+        corn: ingredients[13].quantity,
+        egg: ingredients[14].quantity,
+        ham: ingredients[3].quantity,
+        jalapeño: ingredients[7].quantity,
+        mass: ingredients[15].quantity,
+        mustard: ingredients[11].quantity,
+        olives: ingredients[8].quantity,
+        pepperoni: ingredients[0].quantity,
+        pineapple: ingredients[12].quantity,
+        sausage: ingredients[6].quantity,
+        tomato: ingredients[9].quantity,
+      },
+      image: imageSelector,
+    };
+
+    dispatch(setPizzaOrder(createPizza));
+    history.push(NavigationUrls.root);
+    reset();
+    dispatch(SetDefaultIngredients());
   };
 
   return (
