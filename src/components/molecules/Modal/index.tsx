@@ -20,6 +20,14 @@ const ModalPizza: React.FC<ModalPizzaProps> = ({
   ingredients,
   phone,
 }) => {
+  const ingredientsText = React.useCallback((quantity: number, type: string) => {
+    if (quantity === 1) {
+      return `${quantity} porción de ${type}`;
+    } else {
+      return `${quantity} porciones de ${type}`;
+    }
+  }, []);
+
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle}>Detalle de la orden</ModalHeader>
@@ -28,8 +36,16 @@ const ModalPizza: React.FC<ModalPizzaProps> = ({
         <MainModalTitle>{pizzaName}</MainModalTitle>
         <ModalSubTitle>Ingredientes:</ModalSubTitle>
         <ul>
-          <ModalContent>2 porciones de Salchicha Americana</ModalContent>
-          <ModalContent>2 porciones de Salchicha Americana</ModalContent>
+          {ingredients.map((ingredient) => {
+            if (ingredient.quantity > 0) {
+              return (
+                <ModalContent key={ingredient.id}>
+                  {ingredientsText(ingredient.quantity, ingredient.ingredient)}
+                </ModalContent>
+              );
+            }
+            return null;
+          })}
         </ul>
         <ModalSubTitle>Información de la ordén:</ModalSubTitle>
         <ul>
