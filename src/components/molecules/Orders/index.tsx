@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { RootState } from 'states';
+import NoOrders from '../NoOrders';
 import { MainWrapper, Title } from './styles';
 
 const Orders: React.FC = () => {
@@ -33,7 +34,7 @@ const Orders: React.FC = () => {
                 ))}
               </React.Fragment>
             ) : (
-              <div>no hay ordenes listas</div>
+              <NoOrders />
             )}
           </React.Fragment>
         )}
