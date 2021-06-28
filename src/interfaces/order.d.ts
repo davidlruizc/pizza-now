@@ -1,5 +1,5 @@
 declare interface IOrdersListReducer {
-  orders: IOrder[] | null;
+  orders: IOrder[];
 }
 
 declare interface IOrder {
