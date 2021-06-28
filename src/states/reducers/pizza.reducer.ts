@@ -5,7 +5,13 @@ export interface ISetOrder {
   payload: IOrder;
 }
 
-export const initialState: IOrdersListReducer = { orders: null };
+function insertOrder(array: IOrder[], action: IOrder) {
+  let newArray = array.slice();
+  newArray.splice(action.phone, 0, action);
+  return newArray;
+}
+
+export const initialState: IOrdersListReducer = { orders: [] };
 
 export type IOrderActionType = ISetOrder;
 
@@ -17,7 +23,7 @@ const orderReducer = (
     case SET_ORDER:
       return {
         ...state,
-        orders: state.orders && [...state.orders, action.payload],
+        orders: insertOrder(state.orders, action.payload),
       };
     default:
       return state;

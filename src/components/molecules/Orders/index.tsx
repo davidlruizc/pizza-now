@@ -1,13 +1,19 @@
 import PizzaCard from 'components/atoms/PizzaCard';
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import { Col, Row } from 'reactstrap';
-import ModalPizza from '../Modal';
+import { RootState } from 'states';
+import NoOrders from '../NoOrders';
 import { MainWrapper, Title } from './styles';
 
 const Orders: React.FC = () => {
-  const [modal, setModal] = React.useState<boolean>(false);
+  const orders = useSelector((state: RootState) => state.orderReducer.orders);
+  const [sortOrders, setSortOrders] = React.useState<IOrder[] | null>(null);
 
-  const toggle = () => setModal(!modal);
+  React.useEffect(() => {
+    const sortOrder = orders.sort((a: any, b: any) => b.date - a.date);
+    setSortOrders(sortOrder);
+  }, [orders]);
 
   return (
     <MainWrapper>
@@ -17,20 +23,22 @@ const Orders: React.FC = () => {
         </Col>
       </Row>
       <Row>
-        <Col sm="4">
-          <PizzaCard onClick={toggle} />
-        </Col>
-        <Col sm="4">
-          <PizzaCard onClick={toggle} />
-        </Col>
-        <Col sm="4">
-          <PizzaCard onClick={toggle} />
-        </Col>
-        <Col sm="4">
-          <PizzaCard onClick={toggle} />
-        </Col>
+        {sortOrders && (
+          <React.Fragment>
+            {sortOrders.length > 0 ? (
+              <React.Fragment>
+                {sortOrders.map((order, index) => (
+                  <Col sm="4" key={index}>
+                    <PizzaCard {...order} />
+                  </Col>
+                ))}
+              </React.Fragment>
+            ) : (
+              <NoOrders />
+            )}
+          </React.Fragment>
+        )}
       </Row>
-      <ModalPizza modal={modal} toggle={toggle} />
     </MainWrapper>
   );
 };

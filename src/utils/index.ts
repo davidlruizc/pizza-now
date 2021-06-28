@@ -1,3 +1,7 @@
+import moment from 'moment';
+
+type TDate = string | Date;
+
 export const hookFormValidation = {
   mode: 'all',
   reValidateMode: 'onBlur',
@@ -25,4 +29,12 @@ export const RandomPizzaImage = (): string => {
   const randomItem = PizzaList[Math.floor(Math.random() * PizzaList.length)];
 
   return randomItem;
+};
+
+export const formatHumanizeDate = (date: TDate): string => {
+  const r1 = +moment(date);
+  const r2 = +moment();
+  const result = r1 - r2;
+  const local = 'es';
+  return moment.duration(result).locale(local).humanize();
 };

@@ -1,32 +1,49 @@
+import ModalPizza from 'components/molecules/Modal';
 import * as React from 'react';
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
+import { FormatCurrency, formatHumanizeDate } from 'utils';
 import { CardContainer, PizzaImage } from './styles';
 
-interface PizzaCardProps {
-  onClick: () => void;
-}
+interface PizzaCardProps extends IOrder {}
 
-const PizzaCard: React.FC<PizzaCardProps> = ({ onClick }) => {
+const PizzaCard: React.FC<PizzaCardProps> = ({
+  image,
+  pizzaName,
+  price,
+  date,
+  name,
+  ingredients,
+  phone,
+}) => {
+  const [modal, setModal] = React.useState<boolean>(false);
+
+  const toggle = () => setModal(!modal);
   return (
     <CardContainer>
       <Card>
-        <PizzaImage
-          top
-          width="100%"
-          src="https://images.unsplash.com/photo-1571066811602-716837d681de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=831&q=80"
-          alt="Card image cap"
-        />
+        <PizzaImage top width="100%" src={image} alt="Card image cap" />
         <CardBody>
-          <CardTitle tag="h2">Pizza a la embeces</CardTitle>
+          <CardTitle tag="h2">{pizzaName}</CardTitle>
           <CardSubtitle tag="h5" className="mb-2 text-muted">
-            hace 15 min
+            {formatHumanizeDate(date)}
           </CardSubtitle>
-          <CardText>$500</CardText>
-          <Button onClick={onClick} color="primary">
+          <CardText>{FormatCurrency(price)}</CardText>
+          <Button onClick={toggle} color="primary">
             Ver más
           </Button>
         </CardBody>
       </Card>
+      <ModalPizza
+        modal={modal}
+        toggle={toggle}
+        image={image}
+        pizzaName={pizzaName}
+        price={price}
+        name={name}
+        date={date}
+        ingredients={ingredients}
+        phone={phone}
+      />
     </CardContainer>
   );
 };
