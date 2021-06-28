@@ -7,6 +7,12 @@ import { MainWrapper, Title } from './styles';
 
 const Orders: React.FC = () => {
   const orders = useSelector((state: RootState) => state.orderReducer.orders);
+  const [sortOrders, setSortOrders] = React.useState<IOrder[] | null>(null);
+
+  React.useEffect(() => {
+    const sortOrder = orders.sort((a: any, b: any) => b.date - a.date);
+    setSortOrders(sortOrder);
+  }, [orders]);
 
   return (
     <MainWrapper>
@@ -16,16 +22,20 @@ const Orders: React.FC = () => {
         </Col>
       </Row>
       <Row>
-        {orders.length > 0 ? (
+        {sortOrders && (
           <React.Fragment>
-            {orders.map((order, index) => (
-              <Col sm="4" key={index}>
-                <PizzaCard {...order} />
-              </Col>
-            ))}
+            {sortOrders.length > 0 ? (
+              <React.Fragment>
+                {sortOrders.map((order, index) => (
+                  <Col sm="4" key={index}>
+                    <PizzaCard {...order} />
+                  </Col>
+                ))}
+              </React.Fragment>
+            ) : (
+              <div>no hay ordenes listas</div>
+            )}
           </React.Fragment>
-        ) : (
-          <div>no hay ordenes listas</div>
         )}
       </Row>
     </MainWrapper>
