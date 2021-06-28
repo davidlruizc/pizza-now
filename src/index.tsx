@@ -4,10 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//Argon Design System
+import 'assets/styles/index.css';
+import 'assets/icons/nucleo/css/nucleo.css';
+import 'assets/icons/font-awesome/css/font-awesome.min.css';
+import 'assets/styles/argon-dashboard-react.css';
+import { createStore } from 'redux';
+import rootReducer from 'states';
+import { Provider } from 'react-redux';
+import { ToastProvider } from 'react-toast-notifications';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+const store = createStore(rootReducer);
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ToastProvider autoDismiss autoDismissTimeout={5000}>
+    <Provider store={store}>
+      <Router>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Router>
+    </Provider>
+  </ToastProvider>,
   document.getElementById('root')
 );
 
