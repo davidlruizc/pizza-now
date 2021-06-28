@@ -13,6 +13,7 @@ import {
   StepContainer,
   StepImage,
 } from './styles';
+import { useToasts } from 'react-toast-notifications';
 
 interface Step1Props {
   onNextStep: () => void;
@@ -23,6 +24,7 @@ const Step1: React.FC<Step1Props> = ({ onNextStep }) => {
   const finalPriceSelector = useSelector((state: RootState) => state.IngredientsReducer.finalPrice);
   const imageSelector = useSelector((state: RootState) => state.IngredientsReducer.image);
   const dispatch = useDispatch();
+  const toast = useToasts();
 
   const addIngredient = (ingredient: IIngredientsSelection) => {
     let increaseQuantity = { ...ingredient, quantity: ingredient.quantity + 1 };
@@ -48,6 +50,16 @@ const Step1: React.FC<Step1Props> = ({ onNextStep }) => {
     dispatch(SetFinalPrice(finalPrice));
   }, [ingredients, dispatch]);
 
+  const verifyNextStep = () => {
+    if (finalPriceSelector !== 10000) {
+      onNextStep();
+    } else {
+      toast.addToast('Para continuar debes seleccionar algún ingrediente', {
+        appearance: 'error',
+      });
+    }
+  };
+
   return (
     <StepContainer>
       <StepImage top width="100%" src={imageSelector} alt="Card image cap" />
@@ -67,7 +79,7 @@ const Step1: React.FC<Step1Props> = ({ onNextStep }) => {
         <PriceValue>{FormatCurrency(finalPriceSelector)}</PriceValue>
       </PriceWrapper>
       <NextWrapper>
-        <Button color="primary" size="lg" block onClick={onNextStep}>
+        <Button color="primary" size="lg" block onClick={verifyNextStep}>
           Siguiente
         </Button>
       </NextWrapper>

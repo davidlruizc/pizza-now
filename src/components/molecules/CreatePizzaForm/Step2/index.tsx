@@ -9,6 +9,7 @@ import { Button, Form, FormFeedback, FormGroup, Input, Label, Row } from 'reacts
 import { RootState } from 'states';
 import { FormatCurrency, hookFormValidation } from 'utils';
 import { ButtonCol, PriceLabel, PriceValue, PriceWrapper, SubmitWrapper } from './styles';
+import { useToasts } from 'react-toast-notifications';
 
 interface Step2Props {
   onPrevStep: () => void;
@@ -26,6 +27,7 @@ const Step2: React.FC<Step2Props> = ({ onPrevStep }) => {
   const imageSelector = useSelector((state: RootState) => state.IngredientsReducer.image);
   const dispatch = useDispatch();
   const history = useHistory();
+  const toast = useToasts();
 
   const defaultValues: Step2Form = {
     name: '',
@@ -75,6 +77,10 @@ const Step2: React.FC<Step2Props> = ({ onPrevStep }) => {
     history.push(NavigationUrls.root);
     reset();
     dispatch(SetDefaultIngredients());
+
+    toast.addToast('Pedido creado exitosamente', {
+      appearance: 'success',
+    });
   };
 
   return (
