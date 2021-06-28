@@ -7,8 +7,9 @@ declare interface IOrder {
   pizzaName: string;
   date: Date;
   phone: number;
-  price: string;
+  price: number;
   ingredients: IIngredients;
+  image: string;
 }
 
 declare interface IIngredients {
@@ -27,4 +28,5 @@ declare interface IIngredients {
   pineapple: number;
   corn: number;
   egg: number;
+  mass: number;
 }

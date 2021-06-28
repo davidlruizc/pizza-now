@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, InputGroupAddon } from 'reactstrap';
+import { FormatCurrency } from 'utils';
 import {
   Content,
   ContentWrapper,
@@ -12,24 +13,35 @@ import {
 interface IngredientProps {
   ingredient: string;
   price: number;
+  disabled?: boolean;
+  quantity: number;
+  addIngredient: () => void;
+  removeIngredient: () => void;
 }
 
-const Ingredient: React.FC<IngredientProps> = ({ ingredient, price }) => {
+const Ingredient: React.FC<IngredientProps> = ({
+  ingredient,
+  price,
+  disabled,
+  quantity,
+  addIngredient,
+  removeIngredient,
+}) => {
   return (
     <IngredientsContainer>
       <ContentWrapper>
         <Content>{ingredient}</Content>
-        <SubContent>${price}</SubContent>
+        <SubContent>{FormatCurrency(price)}</SubContent>
       </ContentWrapper>
       <IngredientsCounter>
         <InputGroupAddon addonType="prepend">
-          <Button>
+          <Button onClick={removeIngredient} disabled={disabled}>
             <i className="fa fa-minus" />
           </Button>
         </InputGroupAddon>
-        <IngredientsInput readOnly={true} value={8} min="0" max="8" />
+        <IngredientsInput readOnly={true} value={quantity} min="0" max="8" />
         <InputGroupAddon addonType="append">
-          <Button>
+          <Button onClick={addIngredient} disabled={disabled}>
             <i className="fa fa-plus" />
           </Button>
         </InputGroupAddon>
