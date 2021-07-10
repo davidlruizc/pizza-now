@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound snapshot match full UI content 1`] = `
+<div
+  className="sc-bdnxRM dHsqWo"
+>
+  <div
+    className="sc-jSFjdj laQnHh container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <div
+          className="sc-gtsrHT jVtluC"
+        >
+          <label
+            className="sc-dlnjwi breyFc"
+          >
+            Pizza Now
+          </label>
+          <img
+            alt="pizza-emoji"
+            className="sc-hKFxyN WiOO"
+            src="pizza.png"
+          />
+        </div>
+      </div>
+      <div
+        className="col-6"
+      >
+        <div
+          className="sc-gKAaRy iexnav"
+        >
+          <button
+            aria-label={null}
+            className="sc-eCApnc iQurul btn btn-secondary btn-lg"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fa fa-times"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-iCoGMd uhlzX"
+  >
+    <img
+      className="sc-fujyAs hKKHrf"
+      src="not-found.svg"
+    />
+    <div
+      className="sc-pNWdM gAgbzS"
+    >
+      <label
+        className="sc-jrsJWt hMHKUZ"
+      >
+        404 Página no encontrada
+      </label>
+      <button
+        aria-label={null}
+        className="btn btn-primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Volver al inicio
+      </button>
+    </div>
+  </div>
+</div>
+`;
