@@ -35,7 +35,6 @@ describe('<Ingredient />', () => {
     const b = component.find('.remove-btn');
     console.log(b.debug());
     expect(handlerAddMock).toHaveBeenCalledTimes(1);
-    // expect(handlerAddMock.mock.calls.length).toEqual(1);
   });
 
   // test('verify remove ingredients button', () => {
