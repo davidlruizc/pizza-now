@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import * as React from 'react';
 import { FormatCurrency } from 'utils';
 import Ingredient from '../index';
@@ -10,7 +10,7 @@ describe('<Ingredient />', () => {
   const handlerAddMock = jest.fn();
   const handlerRemoveMock = jest.fn();
 
-  const component = shallow(
+  const component = mount(
     <Ingredient
       {...IngredientMock}
       addIngredient={handlerAddMock}
@@ -32,13 +32,12 @@ describe('<Ingredient />', () => {
   });
 
   test('verify add ingredients button', () => {
-    const b = component.find('.remove-btn');
-    console.log(b.debug());
+    component.find('button').at(1).simulate('click');
     expect(handlerAddMock).toHaveBeenCalledTimes(1);
   });
 
-  // test('verify remove ingredients button', () => {
-  //   component.find('#add-btn').simulate('click');
-  //   expect(handlerRemoveMock).toHaveBeenCalledTimes(1);
-  // });
+  test('verify remove ingredients button', () => {
+    component.find('button').at(0).simulate('click');
+    expect(handlerRemoveMock).toHaveBeenCalledTimes(1);
+  });
 });
