@@ -35,13 +35,13 @@ const Ingredient: React.FC<IngredientProps> = ({
       </ContentWrapper>
       <IngredientsCounter>
         <InputGroupAddon addonType="prepend">
-          <Button onClick={removeIngredient} disabled={disabled}>
+          <Button onClick={removeIngredient} disabled={disabled} className="remove-btn">
             <i className="fa fa-minus" />
           </Button>
         </InputGroupAddon>
         <IngredientsInput readOnly={true} value={quantity} min="0" max="8" />
         <InputGroupAddon addonType="append">
-          <Button onClick={addIngredient} disabled={disabled}>
+          <Button onClick={addIngredient} disabled={disabled} id="add-btn">
             <i className="fa fa-plus" />
           </Button>
         </InputGroupAddon>
